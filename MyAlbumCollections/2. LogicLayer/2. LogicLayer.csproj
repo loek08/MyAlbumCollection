@@ -1,9 +1,10 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
-    <Nullable>enable</Nullable>
+    <RootNamespace>_2._LogicLayer</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
@@ -12,8 +13,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\2. LogicLayer\2. LogicLayer.csproj" />
     <ProjectReference Include="..\3. CoreLayer\3. CoreLayer.csproj" />
+    <ProjectReference Include="..\4. DataLayer\4. DataLayer.csproj" />
   </ItemGroup>
 
 </Project>
