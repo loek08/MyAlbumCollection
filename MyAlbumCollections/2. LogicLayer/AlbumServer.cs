@@ -11,9 +11,9 @@ namespace _2._LogicLayer
     public class AlbumServer
     {
         private AlbumRepository _repository;
-        public AlbumServer()
+        public AlbumServer(AlbumRepository repository)
         {
-            _repository = new AlbumRepository();
+            _repository = repository;
         }
 
         public List<Album> GetAlbums()

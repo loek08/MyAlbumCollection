@@ -1,6 +1,7 @@
 ﻿using _2._LogicLayer;
 using _3._CoreLayer;
 using Microsoft.AspNetCore.Mvc;
+using MyAlbumCollections.Models;
 
 namespace MyAlbumCollections.Controllers
 {
@@ -8,17 +9,15 @@ namespace MyAlbumCollections.Controllers
     {
         private readonly AlbumServer _albumServer;
         public List<Album> Albums { get; set; }
-        public AlbumController()
+        public AlbumController(AlbumServer albumServer)
         {
-            _albumServer = new AlbumServer();
-
+            _albumServer = albumServer;
         }
         public IActionResult Index()
         {
-            {
-                Albums = _albumServer.GetAlbums();
-                return View();
-            }
+            var albums = _albumServer.GetAlbums();
+            var viewModel = new AlbumIndexViewModel { Albums = albums };
+            return View(viewModel);
         }
     }
 }

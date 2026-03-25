@@ -19,7 +19,7 @@ namespace _4._DataLayer
             {
                 conn.Open();
 
-                string sql = "SELECT Id, Name FROM Album";
+                string sql = "SELECT * FROM Album";
                 using (SqlCommand cmd = new SqlCommand(sql, conn))
                 {
                     using (SqlDataReader reader = cmd.ExecuteReader())
@@ -29,8 +29,13 @@ namespace _4._DataLayer
 
                             int id = reader.GetInt32(reader.GetOrdinal("Id"));
                             string title = reader.GetString(reader.GetOrdinal("Name"));
+                            string genre = reader.GetString(reader.GetOrdinal("Genre"));
+                            string lable = reader.GetString(reader.GetOrdinal("Lable"));
+                            string tracklist = reader.GetString(reader.GetOrdinal("Tracklist"));
+                            string information = reader.GetString(reader.GetOrdinal("Information"));
+                            int artist = reader.GetInt32(reader.GetOrdinal("ArtistId"));
 
-                            albums.Add(new Album(id, title));
+                            albums.Add(new Album(id, title, genre, lable, tracklist, information, artist));
 
                         }
                     }

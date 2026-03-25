@@ -1,5 +1,8 @@
-﻿@model _3._CoreLayer.Album
+﻿@model MyAlbumCollections.Models.AlbumIndexViewModel
 <h1>Home</h1>
-<div class="album">
-    <h1>@Model.Id</h1>
-    <h2>@Model.Title</h2>
+<ul>
+    @foreach (var album in Model.Albums)
+    {
+        <li>@album.Id - @album.Title </li>
+    }
+</ul>
