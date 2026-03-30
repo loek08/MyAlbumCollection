@@ -3,6 +3,10 @@
 <ul>
     @foreach (var album in Model.Albums)
     {
-        <li>@album.Id - @album.Title </li>
+        <li>@album.Id - @album.Title - @album.Genre - @album.Lable - @album.TrackList - @album.Information - @album.ArtistId </li>
+        <form asp-controller="Album" asp-action="AddAlbumToCollection" method="post">
+            <input type="hidden" name="albumId" value="@album.Id" />
+            <button type="submit" class="btn btn-primary">Add</button>
+        </form>
     }
 </ul>

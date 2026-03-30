@@ -44,5 +44,36 @@ namespace _4._DataLayer
             }
             return albums;
         }
+   
     }
+         public List<Album> GetPesificAlbum(int id)
+        {
+            List<Album> pesificAlbums = new List<Album>();
+            using (SqlConnection conn = new SqlConnection(_connectionString))
+            {
+                conn.Open();
+                string sql = "SELECT * FROM Album WHERE Id = @Id";
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    cmd.Parameters.AddWithValue("@Id", id);
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            int albumId = reader.GetInt32(reader.GetOrdinal("Id"));
+                            string title = reader.GetString(reader.GetOrdinal("Name"));
+                            string genre = reader.GetString(reader.GetOrdinal("Genre"));
+                            string lable = reader.GetString(reader.GetOrdinal("Lable"));
+                            string tracklist = reader.GetString(reader.GetOrdinal("Tracklist"));
+                            string information = reader.GetString(reader.GetOrdinal("Information"));
+                            int artist = reader.GetInt32(reader.GetOrdinal("ArtistId"));
+                            pesificAlbums.Add(new Album(albumId, title, genre, lable, tracklist, information, artist));
+                        }
+                    }
+                }
+            }
+            return pesificAlbums;
+        }
+    } 
 }
+

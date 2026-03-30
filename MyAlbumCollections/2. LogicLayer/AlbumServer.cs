@@ -20,5 +20,10 @@ namespace _2._LogicLayer
         {
             return _repository.GetAlbums();
         }
+
+       public List<Album> GetPesificAlbum(int id)
+       { 
+            return _repository.GetPesificAlbum(id);
+       }
     }
 }

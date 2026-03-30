@@ -16,7 +16,7 @@ namespace _3._CoreLayer
         public string TrackList { get; private set; }
         public string Information { get; private set; }
         public int ArtistId { get; private set; }
-
+        public List<Collector> Collectors { get; set; }
 
 
 
