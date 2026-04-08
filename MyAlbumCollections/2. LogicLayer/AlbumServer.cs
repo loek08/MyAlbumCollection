@@ -21,9 +21,11 @@ namespace _2._LogicLayer
             return _repository.GetAlbums();
         }
 
-       public List<Album> GetPesificAlbum(int id)
+       public List<Album> GetSpecificAlbum(int id)
        { 
-            return _repository.GetPesificAlbum(id);
+            return _repository.GetSpecificAlbum(id);
        }
+       
+
     }
 }

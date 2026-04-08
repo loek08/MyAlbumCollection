@@ -1,0 +1,8 @@
+﻿@model MyAlbumCollections.Models.AlbumIndexViewModel
+
+<ul>
+    @foreach (var album in Model.Albums)
+    {
+        <li>@album.Id - @album.Title - @album.Genre - @album.Lable - @album.TrackList - @album.Information - @album.ArtistId </li>
+    }
+</ul>

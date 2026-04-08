@@ -44,11 +44,10 @@ namespace _4._DataLayer
             }
             return albums;
         }
-   
-    }
-         public List<Album> GetPesificAlbum(int id)
+        
+        public List<Album> GetSpecificAlbum(int id)
         {
-            List<Album> pesificAlbums = new List<Album>();
+            List<Album> specificAlbum = new List<Album>();
             using (SqlConnection conn = new SqlConnection(_connectionString))
             {
                 conn.Open();
@@ -67,13 +66,14 @@ namespace _4._DataLayer
                             string tracklist = reader.GetString(reader.GetOrdinal("Tracklist"));
                             string information = reader.GetString(reader.GetOrdinal("Information"));
                             int artist = reader.GetInt32(reader.GetOrdinal("ArtistId"));
-                            pesificAlbums.Add(new Album(albumId, title, genre, lable, tracklist, information, artist));
+                            specificAlbum.Add(new Album(albumId, title, genre, lable, tracklist, information, artist));
                         }
                     }
                 }
             }
-            return pesificAlbums;
+            return specificAlbum;
         }
-    } 
+    }
 }
 
+        

@@ -1,11 +1,12 @@
 ﻿using _3._CoreLayer;
 using Microsoft.AspNetCore.Mvc;
+using MyAlbumCollections.Models;
 
 namespace MyAlbumCollections.Controllers
 {
     public class CollectionController : Controller
     {
-        public List<Album> PesificAlbums { get; set; }
+        //public List<Album> PesificAlbums { get; set; }
         public IActionResult Index()
         {
 
