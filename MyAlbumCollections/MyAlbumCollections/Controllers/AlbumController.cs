@@ -28,7 +28,7 @@ namespace MyAlbumCollections.Controllers
             int collectorId = 1;
             
 
-            return RedirectToAction("SpecificAlbum", "Album");
+            return RedirectToAction("Index", "Collection", new {id = collectorId, idAlbum = albumId} );
 
 
         }

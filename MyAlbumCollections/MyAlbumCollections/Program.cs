@@ -7,6 +7,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<AlbumServer>();
 builder.Services.AddScoped<AlbumRepository>();
+builder.Services.AddScoped<CollectorServer>();
+builder.Services.AddScoped<CollectionRepository>();
 
 var app = builder.Build();
 

@@ -18,12 +18,14 @@ namespace _2._LogicLayer
 
         public List<Album> GetAlbums()
         {
-            return _repository.GetAlbums();
+            //return _repository.GetAlbums();
+            return new List<Album>();
         }
 
        public List<Album> GetSpecificAlbum(int id)
        { 
-            return _repository.GetSpecificAlbum(id);
+            //return _repository.GetSpecificAlbum(id);
+            return new List<Album>();
        }
        
 

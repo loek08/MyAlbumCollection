@@ -1,4 +1,7 @@
 ﻿@model MyAlbumCollections.Models.AlbumIndexViewModel
-<h1>Home</h1>
 <ul>
+    @foreach(var collector in Model.Albums)
+    {
+        <li>@collector.Id - @collector.Title</li>
+    }
 </ul>

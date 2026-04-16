@@ -14,7 +14,7 @@ namespace _3._CoreLayer
         public string Username { get; set; }
         public string Password { get; set; }
         public string EmailAdress { get; set; }
-        public List<Album> Albums { get; set; }
+        //public List<Album> Albums { get; set; }
 
         public Collector (int id, string firstName, string surname, string username, string password, string emailAdress)
         {
