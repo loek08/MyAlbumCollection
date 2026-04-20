@@ -18,11 +18,21 @@ namespace _2._LogicLayer
 
         public List<Album> GetAlbums()
         {
-            //return _repository.GetAlbums();
-            return new List<Album>();
+            var data = _repository.GetAlbums();
+
+            return data.Select(x => new Album(
+                x.Id,
+                x.Title,
+                x.Genre,
+                x.Lable,
+                x.TrackList,
+                x.Information,
+                x.ArtistId
+            )).ToList();
         }
 
-       public List<Album> GetSpecificAlbum(int id)
+
+        public List<Album> GetSpecificAlbum(int id)
        { 
             //return _repository.GetSpecificAlbum(id);
             return new List<Album>();

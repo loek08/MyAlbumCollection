@@ -9,9 +9,9 @@ namespace _2._LogicLayer
         private CollectionRepository _repository;
         private FakeCollectorsRepo _fakeCollectorsRepo;
 
-        public CollectorServer(FakeCollectorsRepo repository)
+        public CollectorServer(CollectionRepository repository)
             {
-                _fakeCollectorsRepo = repository;
+                _repository = repository;
             }
     
             public void AddAlbumToCollectorsCollection(int collector, int album)

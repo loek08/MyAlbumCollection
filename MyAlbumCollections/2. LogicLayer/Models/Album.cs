@@ -4,20 +4,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using _4._DataLayer;
 
 namespace _3._CoreLayer
 {
     public class Album
     {
-        public int Id { get; private set; }
-        public string Title { get; private set; }
-        public string Genre { get; private set; }
-        public string Lable { get; private set; }
-        public string TrackList { get; private set; }
-        public string Information { get; private set; }
-        public int ArtistId { get; private set; }
+        public int Id { get; set; }
+        public string Title { get; set; }
+        public string Genre { get; set; }
+        public string Lable { get; set; }
+        public string TrackList { get; set; }
+        public string Information { get; set; }
+        public int ArtistId { get; set; }
         public List<Collector> Collectors { get; set; }
-
+        private AlbumRepository _repository;
 
 
         public Album(int id, string title, string genre, string lable, string tracklist, string information, int artist)
@@ -28,7 +29,8 @@ namespace _3._CoreLayer
             Lable = lable;
             TrackList = tracklist;
             Information = information;
-            ArtistId = artist;            
+            ArtistId = artist;
         }
+
     }
 }
