@@ -50,6 +50,19 @@ namespace MyAlbumCollectionsUnitTests
             //assert
             Assert.Equal(results.Surname, "Smith");
         }
+        [Fact]
+        public void GetSpecificFirstNameFromID1FromTheDataBase()
+        {
+            // arrange
+            int userId = 1;
+            var collectorserver = new CollectorServer(new FakeCollectorsRepo());
+
+            // act
+            var results = collectorserver.GetSpecificCollector(userId);
+            //assert
+            Assert.Equal(results.FirstName, "John");
+        }
+      
 
     }
 }
