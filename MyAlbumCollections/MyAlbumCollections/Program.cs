@@ -1,13 +1,14 @@
 using _2._LogicLayer;
+using _2._LogicLayer.Interfaces;
 using _4._DataLayer;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddScoped<AlbumServer>();
-builder.Services.AddScoped<AlbumRepository>();
-builder.Services.AddScoped<CollectorServer>();
+builder.Services.AddScoped<AlbumService>();
+builder.Services.AddScoped<IAlbumRepository, AlbumRepository>();
+builder.Services.AddScoped<CollectorService>();
 builder.Services.AddScoped<CollectionRepository>();
 
 var app = builder.Build();

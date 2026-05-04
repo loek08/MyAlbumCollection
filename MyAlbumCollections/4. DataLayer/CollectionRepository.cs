@@ -1,5 +1,5 @@
 ﻿using _3._CoreLayer;
-using _4._DataLayer.DataModel;
+using _2._LogicLayer.Models;
 using Microsoft.Data.SqlClient;
 
 namespace _4._DataLayer
@@ -24,9 +24,9 @@ namespace _4._DataLayer
                 }
             }
         }
-        public List<AlbumData> GetCollectorsCollection(int collector)
+        public List<Album> GetCollectorsCollection(int collector)
         {
-            List<AlbumData> list = new List<AlbumData>();
+            List<Album> list = new List<Album>();
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
@@ -38,15 +38,16 @@ namespace _4._DataLayer
                     {
                         while (reader.Read())
                         {
-                            list.Add(new AlbumData {
-                            Id = reader.GetInt32(reader.GetOrdinal("Id")),
-                            Title = reader.GetString(reader.GetOrdinal("Name")),
-                            Genre = reader.GetString(reader.GetOrdinal("Genre")),
-                            Lable = reader.GetString(reader.GetOrdinal("Lable")),
-                            TrackList = reader.GetString(reader.GetOrdinal("Tracklist")),
-                            Information = reader.GetString(reader.GetOrdinal("Information")),
-                            ArtistId = reader.GetInt32(reader.GetOrdinal("ArtistId"))
-                            });
+
+                            int Id = reader.GetInt32(reader.GetOrdinal("Id"));
+                            string title = reader.GetString(reader.GetOrdinal("Name"));
+                            string Genre = reader.GetString(reader.GetOrdinal("Genre"));
+                            string Lable = reader.GetString(reader.GetOrdinal("Lable"));
+                            string TrackList = reader.GetString(reader.GetOrdinal("Tracklist"));
+                            string Information = reader.GetString(reader.GetOrdinal("Information"));
+                            int ArtistId = reader.GetInt32(reader.GetOrdinal("ArtistId"));
+                            list.Add(new Album(Id, title, Genre, Lable, TrackList, Information, ArtistId));
+;
                         }
                     }
                 }

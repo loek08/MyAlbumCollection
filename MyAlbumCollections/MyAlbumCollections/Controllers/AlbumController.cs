@@ -7,12 +7,12 @@ namespace MyAlbumCollections.Controllers
 {
     public class AlbumController : Controller
     {
-        private readonly AlbumServer _albumServer;
+        private readonly AlbumService _albumServer;
         //public List<Album> Albums { get; set; }
         //public List<Collector> Collectors { get; set; }
         //public List<Album> AlbumList { get; set; }
         //public List<Collector> CollectorList { get; set; }
-        public AlbumController(AlbumServer albumServer)
+        public AlbumController(AlbumService albumServer)
         {
             _albumServer = albumServer;
         }

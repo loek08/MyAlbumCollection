@@ -1,21 +1,19 @@
-﻿using _3._CoreLayer;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 using Microsoft.Data.SqlClient;
-using _4._DataLayer.DataModel;
+using _2._LogicLayer.Models;
+using _2._LogicLayer.Interfaces;
+
+
 
 namespace _4._DataLayer
 {
-    public class AlbumRepository
+    public class AlbumRepository : IAlbumRepository
     {
         private readonly string _connectionString = "Server=(localdb)\\MyLocalDB;Database=MyAlbumCollection;Trusted_Connection=True;";
 
-        public List<AlbumData> GetAlbums()
+        public List<Album> GetAlbums()
         {
-            List<AlbumData> albums = new List<AlbumData>();
+            List<Album> albums = new List<Album>();
             using (SqlConnection conn = new SqlConnection(_connectionString))
             {
                 conn.Open();
@@ -27,17 +25,15 @@ namespace _4._DataLayer
                     {
                         while (reader.Read())
                         {
-                            albums.Add(new AlbumData {
+                            int id = reader.GetInt32(reader.GetOrdinal("Id"));
+                            string title = reader.GetString(reader.GetOrdinal("Name"));
+                            string genre = reader.GetString(reader.GetOrdinal("Genre"));
+                            string lable = reader.GetString(reader.GetOrdinal("Lable"));
+                            string trackList = reader.GetString(reader.GetOrdinal("Tracklist"));
+                            string information = reader.GetString(reader.GetOrdinal("Information"));
+                            int artistId = reader.GetInt32(reader.GetOrdinal("ArtistId"));
 
-                            Id = reader.GetInt32(reader.GetOrdinal("Id")),
-                            Title = reader.GetString(reader.GetOrdinal("Name")),
-                            Genre = reader.GetString(reader.GetOrdinal("Genre")),
-                            Lable = reader.GetString(reader.GetOrdinal("Lable")),
-                            TrackList = reader.GetString(reader.GetOrdinal("Tracklist")),
-                            Information = reader.GetString(reader.GetOrdinal("Information")),
-                            ArtistId = reader.GetInt32(reader.GetOrdinal("ArtistId"))
-
-                            });
+                            albums.Add(new Album (id, title, genre, lable, trackList, information, artistId));
 
                         }
                     }
@@ -45,37 +41,6 @@ namespace _4._DataLayer
 
             }
             return albums;
-        }
-        
-        public List<AlbumData> GetSpecificAlbum(int id)
-        {
-            List<AlbumData> specificAlbum = new List<AlbumData>();
-            using (SqlConnection conn = new SqlConnection(_connectionString))
-            {
-                conn.Open();
-                string sql = "SELECT * FROM Album WHERE Id = @Id";
-                using (SqlCommand cmd = new SqlCommand(sql, conn))
-                {
-                    cmd.Parameters.AddWithValue("@Id", id);
-                    using (SqlDataReader reader = cmd.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            specificAlbum.Add(new AlbumData {
-                            Id = reader.GetInt32(reader.GetOrdinal("Id")),
-                            Title = reader.GetString(reader.GetOrdinal("Name")),
-                            Genre = reader.GetString(reader.GetOrdinal("Genre")),
-                            Lable = reader.GetString(reader.GetOrdinal("Lable")),
-                            TrackList = reader.GetString(reader.GetOrdinal("Tracklist")),
-                            Information = reader.GetString(reader.GetOrdinal("Information")),
-                            ArtistId = reader.GetInt32(reader.GetOrdinal("ArtistId"))
-                          });
-                 
-                        }
-                    }
-                }
-            }
-            return specificAlbum;
         }
     }
 }

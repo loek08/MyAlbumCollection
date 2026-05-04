@@ -13,7 +13,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\2. LogicLayer\2. LogicLayer.csproj" />
     <ProjectReference Include="..\3. CoreLayer\3. CoreLayer.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="DataModel\" />
   </ItemGroup>
 
 </Project>

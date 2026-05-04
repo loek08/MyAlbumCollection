@@ -1,13 +1,6 @@
-﻿using Moq;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 using _4._DataLayer.FakeData;
-using System.Reflection.Metadata;
-using _3._CoreLayer;
-using _2._LogicLayer;
+
 
 namespace MyAlbumCollectionsUnitTests
 {
@@ -19,7 +12,7 @@ namespace MyAlbumCollectionsUnitTests
         {
             // arrange
             int userId = 2;
-            var collectorserver = new CollectorServer(new FakeCollectorsRepo());
+            var collectorserver = new FakeCollectorsRepo();
 
             // act
             var results = collectorserver.GetSpecificCollector(userId);
@@ -31,7 +24,7 @@ namespace MyAlbumCollectionsUnitTests
         {
             // arrange
             int userId = 2;
-            var collectorserver = new CollectorServer(new FakeCollectorsRepo());
+            var collectorserver = new FakeCollectorsRepo();
 
             // act
             var results = collectorserver.GetSpecificCollector(userId);
@@ -43,7 +36,7 @@ namespace MyAlbumCollectionsUnitTests
         {
             // arrange
             int userId = 2;
-            var collectorserver = new CollectorServer(new FakeCollectorsRepo());
+            var collectorserver = new FakeCollectorsRepo();
 
             // act
             var results = collectorserver.GetSpecificCollector(userId);
@@ -55,7 +48,7 @@ namespace MyAlbumCollectionsUnitTests
         {
             // arrange
             int userId = 1;
-            var collectorserver = new CollectorServer(new FakeCollectorsRepo());
+            var collectorserver =  new FakeCollectorsRepo();
 
             // act
             var results = collectorserver.GetSpecificCollector(userId);
