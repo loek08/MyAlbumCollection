@@ -13,7 +13,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\2. LogicLayer\2. LogicLayer.csproj" />
-    <ProjectReference Include="..\3. CoreLayer\3. CoreLayer.csproj" />
     <ProjectReference Include="..\4. DataLayer\4. DataLayer.csproj" />
   </ItemGroup>
 

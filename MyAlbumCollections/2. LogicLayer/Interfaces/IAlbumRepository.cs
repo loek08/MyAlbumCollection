@@ -5,5 +5,7 @@ namespace _2._LogicLayer.Interfaces
     public interface IAlbumRepository
     {
       public List<Album> GetAlbums();
+
+      public List<Album> GetSpecificAlbum(int id);
     }
 }

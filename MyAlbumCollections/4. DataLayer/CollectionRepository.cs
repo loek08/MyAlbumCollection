@@ -1,10 +1,11 @@
-﻿using _3._CoreLayer;
+﻿
 using _2._LogicLayer.Models;
+using _2._LogicLayer.Interfaces;
 using Microsoft.Data.SqlClient;
 
 namespace _4._DataLayer
 {
-    public class CollectionRepository
+    public class CollectionRepository : ICollectionRepository
     {
         private readonly string connectionString = "Server=(localdb)\\MyLocalDB;Database=MyAlbumCollection;Trusted_Connection=True;";
 

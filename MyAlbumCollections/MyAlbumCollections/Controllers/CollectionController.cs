@@ -17,9 +17,9 @@ namespace MyAlbumCollections.Controllers
 
         public IActionResult Index(int id, int idAlbum)
         {
-            //_collectorServer.AddAlbumToCollectorsCollection(id, idAlbum);
-            //var list = _collectorServer.GetCollectorsCollection(id);
-            //var viewModel = new AlbumIndexViewModel { Albums = list };
+            _collectorServer.AddAlbumToCollectorsCollection(id, idAlbum);
+            var list = _collectorServer.GetCollectorsCollection(id);
+            var viewModel = new AlbumIndexViewModel { Albums = list };
             return View();
         }
          

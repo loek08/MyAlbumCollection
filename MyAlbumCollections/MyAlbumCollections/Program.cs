@@ -10,6 +10,7 @@ builder.Services.AddScoped<AlbumService>();
 builder.Services.AddScoped<IAlbumRepository, AlbumRepository>();
 builder.Services.AddScoped<CollectorService>();
 builder.Services.AddScoped<CollectionRepository>();
+builder.Services.AddScoped<ICollectionRepository, CollectionRepository>();
 
 var app = builder.Build();
 

@@ -1,4 +1,4 @@
-﻿using _3._CoreLayer;
+﻿using _2._LogicLayer.Models;
 
 
 namespace _2._LogicLayer.Models

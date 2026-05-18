@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using _3._CoreLayer;
+using _2._LogicLayer.Models;
 
 namespace _4._DataLayer.FakeData
 {

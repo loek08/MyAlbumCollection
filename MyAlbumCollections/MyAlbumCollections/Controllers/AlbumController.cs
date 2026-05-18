@@ -1,5 +1,5 @@
 ﻿using _2._LogicLayer;
-using _3._CoreLayer;
+using _2._LogicLayer.Models;
 using Microsoft.AspNetCore.Mvc;
 using MyAlbumCollections.Models;
 
