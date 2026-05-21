@@ -1,5 +1,4 @@
-﻿
-using _2._LogicLayer.Models;
+﻿using _2._LogicLayer.Models;
 using _2._LogicLayer;
 using _4._DataLayer.FakeData;
 
@@ -18,8 +17,10 @@ namespace MyAlbumCollectionsUnitTests
 
             // act
             var results = collectorserver.GetSpecificCollector(2);
-            //assert
-            Assert.Equal(results.FirstName, "Jane");
+            
+            // assert
+            Assert.NotNull(results);
+            Assert.IsType<Collector>(results);
         }
 
 

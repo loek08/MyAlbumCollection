@@ -16,8 +16,4 @@
     <ProjectReference Include="..\2. LogicLayer\2. LogicLayer.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="DataModel\" />
-  </ItemGroup>
-
 </Project>

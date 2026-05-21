@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "4. DataLayer", "4. DataLaye
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyAlbumCollectionsUnitTests", "MyAlbumCollectionsUnitTests\MyAlbumCollectionsUnitTests.csproj", "{FE107FEB-71CB-4661-B5AF-92F27EAD5E3A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3. InferfaceLayer", "3. InferfaceLayer\3. InferfaceLayer.csproj", "{CE55E958-7930-4CD6-88ED-9A679DB06B21}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{FE107FEB-71CB-4661-B5AF-92F27EAD5E3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FE107FEB-71CB-4661-B5AF-92F27EAD5E3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FE107FEB-71CB-4661-B5AF-92F27EAD5E3A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE55E958-7930-4CD6-88ED-9A679DB06B21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE55E958-7930-4CD6-88ED-9A679DB06B21}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE55E958-7930-4CD6-88ED-9A679DB06B21}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE55E958-7930-4CD6-88ED-9A679DB06B21}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
