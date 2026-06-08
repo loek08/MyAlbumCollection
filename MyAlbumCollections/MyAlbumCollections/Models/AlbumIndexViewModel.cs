@@ -6,5 +6,6 @@ namespace MyAlbumCollections.Models
     public class AlbumIndexViewModel
     {
         public List<Album>? Albums { get; set; }
+        public Album? Album { get; set; }
     }
 }

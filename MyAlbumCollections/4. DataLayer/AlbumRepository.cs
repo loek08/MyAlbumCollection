@@ -42,15 +42,16 @@ namespace _4._DataLayer
             }
             return albums;
         }
-        public List<Album> GetSpecificAlbum(int id)
+        public Album? GetSpecificAlbum(int id)
         {
-            List<Album> specificAlbum = new List<Album>();
+            Album? specificAlbum = null;
             using (SqlConnection conn = new SqlConnection(_connectionString))
             {
                 conn.Open();
                 string sql = "SELECT * FROM Album WHERE Id = @Id";
                 using (SqlCommand cmd = new SqlCommand(sql, conn))
                 {
+                    
                     cmd.Parameters.AddWithValue("@Id", id);
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
@@ -63,7 +64,7 @@ namespace _4._DataLayer
                             string tracklist = reader.GetString(reader.GetOrdinal("Tracklist"));
                             string information = reader.GetString(reader.GetOrdinal("Information"));
                             int artist = reader.GetInt32(reader.GetOrdinal("ArtistId"));
-                            specificAlbum.Add(new Album(albumId, title, genre, lable, tracklist, information, artist));
+                            specificAlbum = new Album(albumId, title, genre, lable, tracklist, information, artist);
                         }
                     }
                 }

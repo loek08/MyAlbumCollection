@@ -6,6 +6,6 @@ namespace _2._LogicLayer.Interfaces
     {
       public List<Album> GetAlbums();
 
-      public List<Album> GetSpecificAlbum(int id);
+      public Album? GetSpecificAlbum(int id);
     }
 }

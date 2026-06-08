@@ -12,10 +12,10 @@ namespace _2._LogicLayer
                 _repository = repository;
             }
 
-        public void AddAlbumToCollectorsCollection(int collector, int album)
-        {
-            _repository.AddAlbumToCollectorsCollection(collector, album);
-        }
+        //public void AddAlbumToCollectorsCollection(int collector, int album)
+        //{
+        //    _repository.AddAlbumToCollectorsCollection(collector, album);
+        //}
 
         public List<Album> GetCollectorsCollection(int collector)
         {

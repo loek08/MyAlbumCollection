@@ -1,5 +1,6 @@
 using _2._LogicLayer;
 using _2._LogicLayer.Interfaces;
+using _2._LogicLayer.ModelCollection;
 using _4._DataLayer;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,6 +12,7 @@ builder.Services.AddScoped<IAlbumRepository, AlbumRepository>();
 builder.Services.AddScoped<CollectorService>();
 builder.Services.AddScoped<CollectionRepository>();
 builder.Services.AddScoped<ICollectionRepository, CollectionRepository>();
+builder.Services.AddScoped<CollectorCollection>();
 
 var app = builder.Build();
 

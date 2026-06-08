@@ -17,12 +17,12 @@ namespace MyAlbumCollectionsUnitTests
 
             // act
             var results = collectorserver.GetSpecificCollector(2);
-            
+
             // assert
-            Assert.NotNull(results);
-            Assert.IsType<Collector>(results);
+            Assert.Equal(results.FirstName, "lara");
         }
 
 
     }
 }
+ 

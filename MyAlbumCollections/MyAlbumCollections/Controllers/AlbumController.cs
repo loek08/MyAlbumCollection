@@ -35,7 +35,7 @@ namespace MyAlbumCollections.Controllers
         public IActionResult SpecificAlbum(int albumId)
         {
             var specificAlbum = _albumServer.GetSpecificAlbum(albumId);
-            var viewModel = new AlbumIndexViewModel { Albums = specificAlbum };
+            var viewModel = new AlbumIndexViewModel { Album = specificAlbum };
             return View(viewModel);
         }
     }

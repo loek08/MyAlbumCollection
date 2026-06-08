@@ -14,7 +14,7 @@ namespace _2._LogicLayer.Models
         public string Username { get; set; }
         public string Password { get; set; }
         public string EmailAdress { get; set; }
-        //public List<Album> Albums { get; set; }
+        public List<Album> Albums { get; set; } = new List<Album>();
 
         public Collector (int id, string firstName, string surname, string username, string password, string emailAdress)
         {
@@ -24,6 +24,11 @@ namespace _2._LogicLayer.Models
             Username = username;
             Password = password;
             EmailAdress = emailAdress;
+        }
+
+        public void AddAlbumToCollectorsCollection(Album album)
+        {
+           Albums.Add(album);
         }
     }
 }

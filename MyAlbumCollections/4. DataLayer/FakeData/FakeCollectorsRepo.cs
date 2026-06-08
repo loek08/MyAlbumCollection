@@ -21,8 +21,8 @@ namespace _4._DataLayer.FakeData
 
         public Collector? GetSpecificCollerctor(int CollectorId)
         {
-                       CollectorData collectorData = new CollectorData();
-            return collectorData.Collectors().FirstOrDefault(c => c.Id == CollectorId);
+
+            return new Collector(2,"lara","jansen","jara","121212","gmail@gmail.com");
         }
     }
 }

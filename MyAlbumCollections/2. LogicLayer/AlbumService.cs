@@ -19,7 +19,7 @@ namespace _2._LogicLayer
         }
 
 
-        public List<Album> GetSpecificAlbum(int id)
+        public Album? GetSpecificAlbum(int id)
        {
             return _repository.GetSpecificAlbum(id);
 

@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using MyAlbumCollections.Models;
 using _2._LogicLayer;
+using _2._LogicLayer.ModelCollection;
 
 namespace MyAlbumCollections.Controllers
 {
@@ -9,18 +10,20 @@ namespace MyAlbumCollections.Controllers
     {
         private readonly CollectorService _collectorServer;
         private readonly AlbumService _albumServer;
-        public CollectionController(CollectorService collectorServer, AlbumService albumServer)
+        private readonly CollectorCollection _collectorCollection;
+        public CollectionController(CollectorService collectorServer, AlbumService albumServer, CollectorCollection collectorCollection)
         {
             _collectorServer = collectorServer;
             _albumServer = albumServer;
+            _collectorCollection = collectorCollection;
         }
 
         public IActionResult Index(int id, int idAlbum)
         {
-            _collectorServer.AddAlbumToCollectorsCollection(id, idAlbum);
+            _collectorCollection.AddAlbumToCollectorsCollection(id, idAlbum);
             var list = _collectorServer.GetCollectorsCollection(id);
             var viewModel = new AlbumIndexViewModel { Albums = list };
-            return View();
+            return View(viewModel);
         }
          
 
