@@ -21,12 +21,18 @@ namespace _2._LogicLayer.ModelCollection
 
         public void AddAlbumToCollectorsCollection(int collectorId, int albumId)
         {
-            Album? album = _albumRepository.GetSpecificAlbum(albumId);
+            Album? album = _albumRepository.GetSpecificAlbum(albumId); 
             Collector? collector = _repository.GetSpecificCollerctor(collectorId);
+
 
             collector.AddAlbumToCollectorsCollection(album);
 
             _repository.AddAlbumToCollectorsCollection(collectorId, albumId);
+        }
+
+        public void ClearCollectorsCollection()
+        {
+
         }
     }
 }

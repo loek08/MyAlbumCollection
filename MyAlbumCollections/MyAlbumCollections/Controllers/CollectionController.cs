@@ -20,7 +20,17 @@ namespace MyAlbumCollections.Controllers
 
         public IActionResult Index(int id, int idAlbum)
         {
+            try { 
             _collectorCollection.AddAlbumToCollectorsCollection(id, idAlbum);
+        }
+            catch (InvalidOperationException ex)
+
+            {
+                // Show the error to the user
+                return BadRequest(ex.Message);
+
+            }
+
             var list = _collectorServer.GetCollectorsCollection(id);
             var viewModel = new AlbumIndexViewModel { Albums = list };
             return View(viewModel);

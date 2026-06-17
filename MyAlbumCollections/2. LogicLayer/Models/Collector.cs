@@ -28,7 +28,18 @@ namespace _2._LogicLayer.Models
 
         public void AddAlbumToCollectorsCollection(Album album)
         {
-           Albums.Add(album);
+            if (Albums.Contains(album))
+            {
+                throw new InvalidOperationException("Album is already in the collector's collection.");
+            }
+
+
+            Albums.Add(album); 
+        }
+
+        public void ClearCollectorsCollection(Album album)
+        {
+            Albums.Remove(album);
         }
     }
 }

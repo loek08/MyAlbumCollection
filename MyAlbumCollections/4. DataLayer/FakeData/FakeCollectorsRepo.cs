@@ -10,19 +10,25 @@ namespace _4._DataLayer.FakeData
 {
     public class FakeCollectorsRepo : ICollectionRepository
     {
-        public void AddAlbumToCollectorsCollection(int collector, int album)
+        private Collector _collector =
+            new Collector(1, "lara", "jansen", "jara", "121212", "gmail@gmail.com");
+        private List<Album> _albums = new();
+
+        public void AddAlbumToCollectorsCollection(int collectorId, int albumId)
         {
-            return;
+            // Store information that this relationship exists
+            _albums.Add(new Album(albumId, "...", "...", "...", "...", "...", 1));
         }
-        public List<Album> GetCollectorsCollection(int collector)
+
+        public List<Album> GetCollectorsCollection(int collectorId)
         {
-            return new List<Album>();
+            return _albums;
         }
 
         public Collector? GetSpecificCollerctor(int CollectorId)
         {
 
-            return new Collector(2,"lara","jansen","jara","121212","gmail@gmail.com");
+            return _collector;
         }
     }
 }

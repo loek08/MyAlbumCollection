@@ -1,5 +1,4 @@
-﻿
-using _2._LogicLayer.Models;
+﻿using _2._LogicLayer.Models;
 using _2._LogicLayer.Interfaces;
 using Microsoft.Data.SqlClient;
 
@@ -14,12 +13,24 @@ namespace _4._DataLayer
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
+                
+                // Check if album already exists in database for this collector
+                string checkSql = "SELECT COUNT(*) FROM Album_Collector WHERE CollectorId = @CollectorId AND AlbumId = @AlbumId";
+                using (SqlCommand checkCmd = new SqlCommand(checkSql, conn))
+                {
+                    checkCmd.Parameters.Add(new SqlParameter("@CollectorId", collector));
+                    checkCmd.Parameters.Add(new SqlParameter("@AlbumId", album));
+                    int count = (int)checkCmd.ExecuteScalar();
+                    
+                    if (count > 0)
+                        throw new InvalidOperationException("Album is already in the collector's collection.");
+                }
+                
+                // If not exists, insert it
                 string sql = "INSERT INTO Album_Collector (CollectorId, AlbumId) VALUES (@CollectorId, @AlbumId)";
                 using (SqlCommand cmd = new SqlCommand(sql, conn))
                 {
-                    //cmd.Parameters.AddWithValue("@CollectorId", collector);
-                    //cmd.Parameters.AddWithValue("@AlbumId", album);
-                    cmd.Parameters.Add(new SqlParameter("@AlbumId",album));
+                    cmd.Parameters.Add(new SqlParameter("@AlbumId", album));
                     cmd.Parameters.Add(new SqlParameter("@CollectorId", collector));
                     cmd.ExecuteNonQuery();
                 }
