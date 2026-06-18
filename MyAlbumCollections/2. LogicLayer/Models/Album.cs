@@ -12,7 +12,7 @@ namespace _2._LogicLayer.Models
         public string TrackList { get; set; }
         public string Information { get; set; }
         public int ArtistId { get; set; }
-        public List<Collector> Collectors { get; set; }
+
 
 
 
